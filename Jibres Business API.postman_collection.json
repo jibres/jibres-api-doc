@@ -1,0 +1,681 @@
+{
+	"info": {
+		"_postman_id": "a3fffac8-824a-4ec4-9cc2-8a18f7639837",
+		"name": "Jibres Business API",
+		"description": "Manage your jibres account by full API\n\nEndpoint of this API: https://business.jibres.com/[YourBusinessCode]/b1\n\n[Jibres](https://jibres.com)\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product Management",
+					"item": [
+						{
+							"name": "Add new product",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "ae8f1e90bdd4a8d17872266f1ce9f649"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Full test product\",\n    \"desc\": \"Full desc\",\n    \"buyprice\": \"1000\",\n    \"price\": \"2000\",\n    \"discount\": \"100\",\n    \"vat\": \"1\",\n    \"infinite\": \"1\",\n    \"weight\": \"10\",\n    \"seotitle\": \"seo\",\n    \"slug\": \"fulltest\",\n    \"type\": \"product\",\n    \"seodesc\": \"desc seo\",\n    \"saleonline\": \"10\",\n    \"saletelegram\": \"11\",\n    \"saleapp\": \"12\",\n    \"company\": \"13\",\n    \"scalecode\": \"14\",\n    \"status\": \"active\",\n    \"minsale\": \"15\",\n    \"maxsale\": \"16\",\n    \"salestep\": \"17\",\n    \"oversale\": \"18\",\n    \"unit\": \"19\",\n    \"category\": [1,2,3],\n    \"propery\":\n    [\n        {\n            \"cat\": \"cat1\",\n            \"key\": \"key1\",\n            \"value\": \"value1\"\n        },\n        {\n            \"cat\": \"cat2\",\n            \"key\": \"key2\",\n            \"value\": \"value2\"\n        }\n    ],\n    \"minstock\": \"122\",\n    \"maxstock\": \"123\",\n    \"length\": \"124\",\n    \"width\": \"127\",\n    \"height\": \"128\",\n    \"filesize\": \"129\",\n    \"fileaddress\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://business.jibres.local/$jb2jr/b1/product/edit?id=1",
+									"protocol": "https",
+									"host": [
+										"business",
+										"jibres",
+										"local"
+									],
+									"path": [
+										"$jb2jr",
+										"b1",
+										"product",
+										"edit"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fetch product list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/fetch?q=test&company=1&category=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"fetch"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "test"
+										},
+										{
+											"key": "company",
+											"value": "1"
+										},
+										{
+											"key": "category",
+											"value": "1"
+										}
+									]
+								},
+								"description": "- search in product by param q\n- filter product by special company by param _company_\n- filter product by special category by param _category_"
+							},
+							"response": []
+						},
+						{
+							"name": "Get product Sort detail",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/sort",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"sort"
+									]
+								},
+								"description": "_Get list of allow sort field on product and put on the query string in \"Fetch product list\" API_"
+							},
+							"response": []
+						},
+						{
+							"name": "Remove product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/remove?id=11",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"remove"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit product",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Full test product\",\n  \"desc\": \"Full desc\",\n  \"buyprice\": \"1000\",\n  \"price\": \"2000\",\n  \"discount\": \"100\",\n  \"vat\": \"1\",\n  \"sku\": \"1245\",\n  \"barcode\": \"1234567891\",\n  \"barcode2\": \"987565411231\",\n  \"infinite\": \"1\",\n  \"weight\": \"10\",\n  \"seotitle\": \"seo\",\n  \"slug\": \"fulltest\",\n  \"type\": \"product\",\n  \"seodesc\": \"desc seo\",\n  \"saleonline\": \"10\", \n  \"saletelegram\": \"11\",\n  \"saleapp\": \"12\",\n  \"company\": \"13\",\n  \"scalecode\": \"14\",\n  \"status\": \"available\",\n  \"minsale\": \"15\",\n  \"maxsale\": \"16\",\n  \"salestep\": \"17\",\n  \"oversale\": \"18\",\n  \"unit\": \"19\",\n  \"cat\": \"1\",\n  \"tag\": [\"tag1\", \"tag2\"],\n  \"minstock\": \"122\",\n  \"maxstock\": \"123\",\n  \"length\": \"124\",\n  \"width\": \"127\",\n  \"height\": \"128\",\n  \"filesize\": \"129\",\n  \"fileaddress\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product/edit?id=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"edit"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get product detail",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/detail?id=11",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"detail"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product comment",
+					"item": [
+						{
+							"name": "Fetch product comment list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/comment/fetch?product=11",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"comment",
+										"fetch"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Load one product comment",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/comment/detail?id=L",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"comment",
+										"detail"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "L"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit comment",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"content\" : \"Edited content\",\n    \"status\" : \"approved\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product/comment/edit?id=L",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"comment",
+										"edit"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "L"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Answer to comment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"answer\" : \"Your answer\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product/comment/answer?id=L",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"comment",
+										"answer"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "L"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Manage product comments"
+				},
+				{
+					"name": "Product Category",
+					"item": []
+				},
+				{
+					"name": "Product Gallery",
+					"item": [
+						{
+							"name": "Add product gallery image",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "gallery",
+											"type": "file",
+											"src": []
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product/gallery?id=11",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"gallery"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set product thumb",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fileid\": \"y\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product/gallery/thumb?id=11",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"gallery",
+										"thumb"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "11"
+										}
+									]
+								},
+								"description": "> If if you want to set product thumb, you must add your file to product gallery and have a file id to set as thumb\n\n> _see \"Get product detail\" API doc to get gallery detail_\n\n> _see \"Add product gallery image\" API doc_"
+							},
+							"response": []
+						},
+						{
+							"name": "Remove image from product gallery",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fileid\": \"y\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/product/gallery/remove?id=11",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"gallery",
+										"remove"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "11"
+										}
+									]
+								},
+								"description": "> _see \"Add product gallery image\" API doc_\n\n> _see \"Get product detail\" API doc to get gallery detail_"
+							},
+							"response": []
+						}
+					],
+					"description": "> Add gallery image to product\n> Set product thumb\n> Remove image from product gallery"
+				},
+				{
+					"name": "Product property",
+					"item": [
+						{
+							"name": "Get product property",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/property?id=19",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"property"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "19"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get product property Copy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "appkey",
+										"type": "text",
+										"value": "{{appkey}}"
+									},
+									{
+										"key": "apikey",
+										"type": "text",
+										"value": "{{apikey}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/product/property?id=19",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"product",
+										"property"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "19"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Manage your product"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "business",
+			"value": "Your business key"
+		},
+		{
+			"key": "base_url",
+			"value": " https://business.jibres.com/[YourBusinessCode]/b1"
+		},
+		{
+			"key": "appkey",
+			"value": "Your app key"
+		},
+		{
+			"key": "apikey",
+			"value": "Your api key"
+		}
+	]
+}

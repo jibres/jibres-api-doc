@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "8643c7a5-b60f-440e-a938-15a2eec72bd0",
+		"name": "Jibres Website API",
+		"description": "Manage your business in jibres by full API\n\nEndpoint of this API: https://api.jibres.com/[YourStoreCode]/v2\n\n[Jibres](https://jibres.com)\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add product to cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "{{appkey}}"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "{{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": 11,\n    \"count\" : 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/add",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"add"
+							]
+						},
+						"description": "if set the count = 0, the product will be removed from your cart"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit product count in cart Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "{{appkey}}"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "{{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": 11,\n    \"count\" : 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/edit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"edit"
+							]
+						},
+						"description": "if set the count = 0, the product will be removed from your cart"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove product from cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "{{appkey}}"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "{{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"product\": 11}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/delete",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "appkey",
+								"type": "text",
+								"value": "{{appkey}}"
+							},
+							{
+								"key": "apikey",
+								"type": "text",
+								"value": "{{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"product\": 11}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cart/fetch",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cart",
+								"fetch"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Manage Your cart"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "business",
+			"value": "Your business key"
+		},
+		{
+			"key": "base_url",
+			"value": "https://api.jibres.com/[Your business key]/v2"
+		},
+		{
+			"key": "appkey",
+			"value": "Your app key"
+		},
+		{
+			"key": "apikey",
+			"value": "Your api key"
+		}
+	]
+}
